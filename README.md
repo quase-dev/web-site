@@ -14,7 +14,7 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `git clone <repository-url>` this repository
+* `git clone git@github.com:quase-dev/web-site.git` this repository
 * `cd web-site`
 * `npm install`
 

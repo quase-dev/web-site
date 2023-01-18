@@ -1,3 +1,3 @@
 import Route from '@ember/routing/route';
 
-export default class ScientistsRoute extends Route {}
+export default class AboutRoute extends Route {}
