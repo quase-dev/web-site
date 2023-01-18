@@ -1,0 +1,18 @@
+<div class="container-fluid">
+    <div class="card text-center">
+        <div class="card-header">
+            Links úteis
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="list-group">
+                        {{#each this.links as |link|}}
+                        <Link @url={{link.url}} @description={{link.description}} />
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

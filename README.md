@@ -1,4 +1,4 @@
-# ember-quickstart
+# web-site
 
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
@@ -15,7 +15,7 @@ You will need the following things properly installed on your computer.
 ## Installation
 
 * `git clone <repository-url>` this repository
-* `cd ember-quickstart`
+* `cd web-site`
 * `npm install`
 
 ## Running / Development
@@ -47,8 +47,10 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 Specify what it takes to deploy your app.
 
-## Further Reading / Useful Links
+## Useful Links
+* [Payment patterns](https://github.com/mrmgomes/boleto-utils)
 
+## Further Reading
 * [ember.js](https://emberjs.com/)
 * [ember-cli](https://cli.emberjs.com/release/)
 * Development Browser Extensions
