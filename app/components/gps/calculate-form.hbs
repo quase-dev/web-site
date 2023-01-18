@@ -1,71 +1,59 @@
-<div class="container-fluid mb-4 border-bottom">
-    <div class="card text-center">
-        <div class="card-header">
-            Geração da linha digitável
-        </div>
-        <BsForm @layout="horizontal" @model={{this}} as |form|>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col">
-                        <form.element @controlType="number" @property="socialNumber" as |el|>
-                            <el.control class="form-control no-arrow-numbers" placeholder="Número do PIS" pattern="\d*"
-                                required />
-                        </form.element>
-                        <div id="socialNumberHelp" class="form-text text-muted">Número de identificação social</div>
+<div class="container px-4 py-2">
+    <h2 class="pb-2 border-bottom">Cálculo</h2>
+    <div class="row align-items-md-center g-5 py-2">
+        <form {{on "submit" this.generate}}>
+            <div class="row bg-light p-4">
+                <div class="col col-12 col-sm-3">
+                    <label for="socialNumber" class="form-label">Número de identificação social</label>
+                    <Input id="socialNumber" @value={{this.socialNumber}} @type="number" min="124" max="19999999999"
+                        class="form-control no-arrow-numbers" pattern="\d*" required />
+                    <div class="form-text">Este dado não é salvo em nenhum lugar</div>
+                </div>
+                <div class="col col-12 col-sm-3">
+                    <label for="paymentCode" class="form-label">Código de operação</label>
+                    <select id="paymentCode" class="form-control" {{on 'change' this.updatePaymentCode}} required>
+                        {{#each @paymentCodes as |code|}}
+                        <option value="{{code.id}}" selected={{code.current}} disabled={{code.inactive}}>
+                            {{code.description}}
+                        </option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="col col-12 col-sm-3">
+                    <label for="paymentValue" class="form-label">Valor de contribuição</label>
+                    <div class="input-group">
+                        <span class="input-group-text">R$</span>
+                        <Input id="paymentValue" @value={{this.paymentValue}} @type="number" class="form-control"
+                            min="260.40" max="1501.50" step="0.01" required />
                     </div>
-                    <div class="col">
-                        <select id="paymentCode" class="form-control" {{on 'change' this.updatePaymentCode}} required>
-                            {{#each @paymentCodes as |code|}}
-                            <option value="{{code.id}}" selected={{code.current}} disabled={{code.inactive}}>
-                                {{code.description}}
-                            </option>
-                            {{/each}}
-                        </select>
-                        <div class="form-text">Código de pagamento</div>
-                    </div>
-                    <div class="col">
-                        <form.element @controlType="number" @property="paymentValue" as |el|>
-                            <el.control class="form-control" placeholder="Valor da contribuição (R$)" min="242.40"
-                                max="1501.49" step="0.01" value="242.40" required />
-                        </form.element>
-                        <div class="form-text">
-                            Respeitando o mínimo e teto
-                        </div>
-                    </div>
-                    <div class="col">
-                        <form.element @controlType="month" @property="referenceDate" as |el|>
-                            <el.control class="form-control" min="2022-01" value="2023-01" required />
-                        </form.element>
-                        <div class="form-text">Data de referência</div>
-                    </div>
+                    <div class="form-text">Respeitando o mínimo e máximo da Previdência</div>
+                </div>
+                <div class="col col-12 col-sm-3">
+                    <label for="referenceDate" class="form-label">Data de referência</label>
+                    <Input id="referenceDate" @value={{this.referenceDate}} @type="month" class="form-control"
+                        min="2023-01" required />
+                    <div class="form-text">A contribuição é sempre paga no mês subsequente</div>
                 </div>
             </div>
-            <div class="card-footer">
+            <div class="row mt-3">
                 <div class="text-end">
-                    <BsButton @defaultText="Limpar" @type="warning" @buttonType="reset" {{on "click" this.cleanData}} />
-                    <BsButton @defaultText="Gerar Dados" @type="primary" @buttonType="submit" @preventConcurrency={{true}} {{on "click" this.generate}}/>
+                    <button type="button" class="btn btn-warning" {{on "click" this.cleanData}}>Limpar</button>
+                    <button type="submit" class="btn btn-primary">Gerar Dados</button>
                 </div>
             </div>
-        </BsForm>
+        </form>
     </div>
 </div>
-<div class="container-fluid mb-4 border-bottom">
-    <div class="card text-center">
-        <div class="card-header">
-            Código para pagamento no internet banking   
+
+<div class="container px-4 py-2">
+    <h2 class="pb-2 border-bottom">Resultado</h2>
+    <div class="row align-items-md-center g-5 py-2">
+        <div class="col col-12">
+            <Alert @type={{this.response.type}} @data={{this.response.data}} />
         </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-xs-12">
-                    <Alert @type={{this.response.type}} @data={{this.response.data}} />
-                </div>
-            </div>
-        </div>
-        <div class="card-footer">
-            <div class="text-end {{if (not-eq this.response.type 'success') (concat 'invisible')}}">
-                <button type="button" class="btn btn-success" {{on "click" this.copyPayableDocumentGpsData}}>Copiar
-                    número</button>
-            </div>
+        <div class="col col-12 m-0 text-end {{if (not-eq this.response.type 'success') (concat 'invisible')}}">
+            <button type="button" class="btn btn-success" {{on "click" this.copyPayableDocumentGpsData}}>Copiar
+                número</button>
         </div>
     </div>
 </div>

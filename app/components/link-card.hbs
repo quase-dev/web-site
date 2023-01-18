@@ -1,0 +1,14 @@
+<a href="{{@url}}" target="_blank" rel="noopener noreferrer" class="text-muted text-decoration-none">
+    <div class="card-body bg-light p-2 rounded px-3 text-start d-flex flex-column">
+        <h5 class="mt-2">{{@title}}</h5>
+        <p class="d-block mb-3">
+            <span
+                class="badge rounded-pill bg-{{if @tagtype (concat @tagtype) (concat 'success')}}">
+                {{@tag}}
+            </span>
+        </p>
+        {{#if @description}}
+        <p class="d-block mb-5">{{@description}}</p>
+        {{/if}}
+    </div>
+</a>

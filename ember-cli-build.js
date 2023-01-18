@@ -4,11 +4,14 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
-    'ember-bootstrap': {
-      bootstrapVersion: 5,
-      importBootstrapCSS: false,
+    prember: {
+      urls: ['/', '/about', '/gps-generate', '/gps-roadmap'],
     },
   });
+
+  if (!('FASTBOOT_DISABLED' in process.env)) {
+    process.env.FASTBOOT_DISABLED = EmberApp.env() !== 'production';
+  }
 
   // Use `app.import` to add additional libraries to the generated
   // output files.

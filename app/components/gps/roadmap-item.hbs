@@ -1,0 +1,13 @@
+<li class="timeline{{if @inverted (concat '-inverted')}}">
+    <div class="timeline-badge {{concat @color}}"><i class="bi {{concat 'bi-' @icon}}"></i></div>
+    <div class="timeline-panel">
+        <div class="timeline-heading">
+            <h4 class="mt-0">{{@title}}</h4>
+        </div>
+        <div class="mb-0 text-muted">
+            {{#each @descriptions as |description|}}
+            <p>{{description}}</p>
+            {{/each}}
+        </div>
+    </div>
+</li>

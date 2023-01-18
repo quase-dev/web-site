@@ -1,0 +1,19 @@
+{{#if (not-eq this.accepted true)}}
+<div class="col-12">
+    <div class="alert alert-secondary d-flex align-items-center justify-content-center row" role="alert">
+        <div class="col-12 col-sm-6 col-md-8 text-end">
+            <p class="mb-0 px-2 text-muted">
+                <i class="bi bi-exclamation-triangle"></i>
+                Nós usamos cookies para melhorar sua experiência nesse site.
+            </p>
+        </div>
+        <div class="col-12 pt-3 col-sm-6 pt-sm-0 col-md-4 text-end">
+            <button type="button" class="btn btn-dark btn-sm ms-2" {{on "click" this.accept}}>Ok</button>
+            <a class="btn btn-secondary btn-sm ms-2" href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Cookies"
+                role="button" target="_blank" rel="noopener noreferrer">
+                Saber mais
+            </a>
+        </div>
+    </div>
+</div>
+{{/if}}

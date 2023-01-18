@@ -1,0 +1,13 @@
+<a href="{{@url}}" target="_blank" rel="noopener noreferrer" class="text-muted text-decoration-none">
+    <span
+        class="social-link {{if @description (concat 'rounded-top') (concat 'rounded')}} py-2 px-4 my-0 social-{{if @icon (concat @icon) (concat 'link-45deg')}}">
+        <i class="fs-2 bi bi-{{if @icon (concat @icon) (concat 'link-45deg')}}"></i>
+    </span>
+    {{#if @description}}
+    <div class="position-relative social-{{if @icon (concat @icon) (concat 'link-45deg')}}-description rounded-bottom pt-2 text-center text-light">
+        {{@description}}
+        {{#if @version}}<span
+            class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-success">V{{@version}}</span>{{/if}}
+    </div>
+    {{/if}}
+</a>

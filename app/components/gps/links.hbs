@@ -1,18 +1,15 @@
-<div class="container-fluid">
-    <div class="card text-center">
-        <div class="card-header">
-            Links úteis
-        </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="list-group">
-                        {{#each this.links as |link|}}
-                        <Link @url={{link.url}} @description={{link.description}} />
-                        {{/each}}
-                    </div>
+<div class="container px-4 py-2">
+    <h2 class="pb-2 border-bottom">Links úteis</h2>
+    <div class="row align-items-md-center g-3 py-2">
+            {{#each this.links as |link|}}
+                <div class="col-12 col-sm-4 mb-4 align-items-stretch">
+                    <LinkCard
+                        @title={{link.title}} 
+                        @tag={{link.tag}} 
+                        @tagtype={{link.tagtype}}
+                        @url={{link.url}} 
+                        @description={{link.description}} />
                 </div>
-            </div>
-        </div>
+                {{/each}}
     </div>
 </div>

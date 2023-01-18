@@ -1,26 +1,13 @@
 import Route from '@ember/routing/route';
 import RSVP from 'rsvp';
+import { service } from '@ember/service';
 
 export default class GpsGenerate extends Route {
-  codes = listAllCodes();
+  @service('gps-list-service') service;
 
   model() {
     return RSVP.hash({
-      paymentCodes: this.codes,
+      paymentCodes: this.service.paymentCodes(),
     });
   }
-}
-
-let makePaymentCode = (id, description, current, inactive) => ({
-  id,
-  description,
-  current,
-  inactive,
-});
-
-function listAllCodes() {
-  return [
-    makePaymentCode('1406', '1406 - Facultativo Mensal', true),
-    makePaymentCode('0', 'Em breve ...', false, true),
-  ];
 }

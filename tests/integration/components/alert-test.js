@@ -7,20 +7,22 @@ module('Integration | Component | alert', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+    assert.expect(2);
 
-    await render(hbs`<Alert />`);
+    let response = { type: 'success', data: 'message OK' };
+    this.set('response', response);
 
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <Alert>
-        template block text
-      </Alert>
+    await render(hbs`<Alert @type={{this.response.type}} @data={{this.response.data}} />
     `);
 
-    assert.dom(this.element).hasText('template block text');
+    assert.notEqual(
+      this.element
+        .querySelector('div')
+        .getAttribute('class')
+        .trim()
+        .indexOf(response.type),
+      -1
+    );
+    assert.strictEqual(this.element.textContent.trim(), response.data);
   });
 });
