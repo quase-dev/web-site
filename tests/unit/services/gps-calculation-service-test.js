@@ -22,7 +22,7 @@ module('Unit | Service | gps-calculation-service', function (hooks) {
     const payableDocument = service.generatePayableDocumentGpsData(
       123,
       '1406',
-      260.4,
+      264.00,
       '2023-01'
     );
 
@@ -30,20 +30,20 @@ module('Unit | Service | gps-calculation-service', function (hooks) {
     assert.strictEqual(payableDocument.data, 'Número do PIS inválido!');
   });
 
-  test('should correctly calculate', function (assert) {
+  test('should correctly calculate at minimum wage', function (assert) {
     const service = this.owner.lookup('service:gps-calculation-service');
 
     const payableDocument = service.generatePayableDocumentGpsData(
       124,
       '1406',
-      260.4,
+      264.00,
       '2023-01'
     );
 
     assert.strictEqual(payableDocument.type, 'success');
     assert.strictEqual(
       payableDocument.data,
-      '858400000027-604002701406-600000000009-012420230134'
+      '858000000020-640002701402-600000000009-012420230134'
     );
   });
 });
