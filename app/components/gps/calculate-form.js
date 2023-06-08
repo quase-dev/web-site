@@ -5,6 +5,7 @@ import { tracked } from '@glimmer/tracking';
 
 export default class GpsCalculateFormComponent extends Component {
   @service('gps-calculation-service') service;
+  @service('date-utils-service') dateUtils;
 
   @tracked paymentCodes;
   @tracked response = this.service.makeDefaultResponseData();
@@ -12,7 +13,7 @@ export default class GpsCalculateFormComponent extends Component {
   @tracked socialNumber;
   @tracked paymentCode = '1406';
   @tracked paymentValue = 264.0;
-  @tracked referenceDate = '2023-01';
+  @tracked referenceDate = this.dateUtils.getDefaultReferenceDate();
 
   @action
   generate(event) {
@@ -31,7 +32,7 @@ export default class GpsCalculateFormComponent extends Component {
     this.socialNumber = undefined;
     this.paymentCode = '1406';
     this.paymentValue = 264.0;
-    this.referenceDate = '2023-01';
+    this.referenceDate = this.dateUtils.getDefaultReferenceDate();
   }
 
   @action
