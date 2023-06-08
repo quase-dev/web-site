@@ -22,7 +22,7 @@ module('Unit | Service | gps-calculation-service', function (hooks) {
     const payableDocument = service.generatePayableDocumentGpsData(
       123,
       '1406',
-      264.00,
+      264.0,
       '2023-01'
     );
 
@@ -36,14 +36,14 @@ module('Unit | Service | gps-calculation-service', function (hooks) {
     const payableDocument = service.generatePayableDocumentGpsData(
       124,
       '1406',
-      264.00,
-      '2023-01'
+      264.0,
+      '2023-05'
     );
 
     assert.strictEqual(payableDocument.type, 'success');
     assert.strictEqual(
       payableDocument.data,
-      '858000000020-640002701402-600000000009-012420230134'
+      '858000000020-640002701402-600000000009-012420230533'
     );
   });
 });
