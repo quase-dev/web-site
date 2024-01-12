@@ -12,7 +12,7 @@ export default class GpsCalculateFormComponent extends Component {
 
   @tracked socialNumber;
   @tracked paymentCode = '1406';
-  @tracked paymentValue = 264.0;
+  @tracked paymentValue = 282.4;
   @tracked referenceDate = this.dateUtils.getDefaultReferenceDate();
 
   @action
@@ -31,7 +31,7 @@ export default class GpsCalculateFormComponent extends Component {
     this.response = this.service.makeDefaultResponseData();
     this.socialNumber = undefined;
     this.paymentCode = '1406';
-    this.paymentValue = 264.0;
+    this.paymentValue = 282.4;
     this.referenceDate = this.dateUtils.getDefaultReferenceDate();
   }
 

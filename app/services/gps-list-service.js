@@ -56,8 +56,8 @@ function createLinks() {
       'Qual o valor atual de contribuição?',
       'notícias',
       'danger',
-      'Contríbuição em relação ao salário mínimo atualizado em maio/2023',
-      'https://jacomeadvocacia.com.br/novo-salario-minimo-e-novas-aliquotas-de-contribuicao-ao-inss-2023/'
+      'Contríbuição em relação ao salário mínimo atualizado em jan/2024',
+      'https://www.jusbrasil.com.br/artigos/inss-2024-entenda-as-novas-regras-para-contribuicao-dos-autonomos/2123256846'
     ),
   ];
 }
