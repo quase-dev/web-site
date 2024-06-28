@@ -42,18 +42,18 @@ function createLinks() {
       'Geração do boleto',
       'receita federal',
       'warning',
-      'Link oficial do site do governo, que gera o boleto para pagamento',
-      'http://sal.receita.fazenda.gov.br/PortalSalInternet/faces/pages/calcContribuicoesCI/filiadosApos/selecionarOpcoesCalculoApos.xhtml/'
+      'Link do Governo Federal para geração do boleto de pagamento, pode se gerar outros tipos, etc',
+      'https://www.gov.br/pt-br/servicos/emitir-gps-para-pagamento-de-contribuicoes-previdenciarias'
     ),
     makeLink(
-      'Onde obter meu número de PIS?',
+      'Como obter o número de PIS pelo CPF',
       'blog',
       'success',
       'Como obter seu número de identificação social através das plataformas disponíveis',
       'https://www.creditas.com/exponencial/como-consultar-numero-pis-pelo-cpf/'
     ),
     makeLink(
-      'Qual o valor atual de contribuição?',
+      'Valor atual de contribuição',
       'notícias',
       'danger',
       'Contríbuição em relação ao salário mínimo atualizado em jan/2024',
