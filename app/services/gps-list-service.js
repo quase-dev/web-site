@@ -81,19 +81,17 @@ function createRoadmapItems() {
       'success',
       'Jan/2023',
       [
-        'Instabilidade na plataforma do governo, nos faz buscar como é gerado o boleto',
-        'Início do desenvolvimento',
+        'Publicação do Cálculo automático para o código de pagamento 1406 (20%) com base no valor',
       ],
       true
     ),
-    makeRoadmapItem('power', 'info', 'Fev/2023', [
+    makeRoadmapItem('power', 'info', '...', [
       'Seleção de contribuição com base em quantidade de salários mínimos',
-      'Cálculo automático para o código de pagamento 1406 (20%)',
     ]),
     makeRoadmapItem(
       'clock',
       'warning',
-      'Mar/2023',
+      '...',
       [
         'Inserção de novas categorias de código de pagamento',
         'Cálculo automático da contribuição para essas categorias',
