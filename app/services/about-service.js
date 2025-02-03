@@ -42,7 +42,7 @@ function createTechnologyLinks() {
       'bootstrap-fill',
       'bootstrap',
       'https://getbootstrap.com/docs/5.3/',
-      '5.3.0'
+      '5.3.3'
     ),
     makeIconVersionLink(
       'filetype-js',

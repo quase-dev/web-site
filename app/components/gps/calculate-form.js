@@ -2,6 +2,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
+import { CURRENT_GPS } from 'web-site/helpers/constants';
 
 export default class GpsCalculateFormComponent extends Component {
   @service('gps-calculation-service') service;
@@ -9,10 +10,13 @@ export default class GpsCalculateFormComponent extends Component {
 
   @tracked paymentCodes;
   @tracked response = this.service.makeDefaultResponseData();
+  @tracked currRefDateTxt = CURRENT_GPS.REF_DATE.TEXT;
+  @tracked currMinPaymentValue = CURRENT_GPS.MIN_VALUE;
+  @tracked currMaxPaymentValue = CURRENT_GPS.MAX_VALUE;
 
   @tracked socialNumber;
-  @tracked paymentCode = '1406';
-  @tracked paymentValue = 303.60;
+  @tracked paymentCode = CURRENT_GPS.CODE;
+  @tracked paymentValue = CURRENT_GPS.MIN_VALUE;
   @tracked referenceDate = this.dateUtils.getDefaultReferenceDate();
 
   @action
@@ -30,8 +34,8 @@ export default class GpsCalculateFormComponent extends Component {
   cleanData() {
     this.response = this.service.makeDefaultResponseData();
     this.socialNumber = undefined;
-    this.paymentCode = '1406';
-    this.paymentValue = 282.4;
+    this.paymentCode = CURRENT_GPS.CODE;
+    this.paymentValue = CURRENT_GPS.MIN_VALUE;
     this.referenceDate = this.dateUtils.getDefaultReferenceDate();
   }
 

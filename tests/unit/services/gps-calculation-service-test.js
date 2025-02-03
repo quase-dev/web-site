@@ -1,5 +1,6 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'web-site/tests/helpers';
+import { CURRENT_GPS } from 'web-site/helpers/constants';
 
 module('Unit | Service | gps-calculation-service', function (hooks) {
   setupTest(hooks);
@@ -18,12 +19,13 @@ module('Unit | Service | gps-calculation-service', function (hooks) {
 
   test('should not calculate when social code invalid', function (assert) {
     const service = this.owner.lookup('service:gps-calculation-service');
+    const invalidSocialNumber = 123;
 
     const payableDocument = service.generatePayableDocumentGpsData(
-      123,
-      '1406',
-      282.4,
-      '2024-01'
+      invalidSocialNumber,
+      CURRENT_GPS.CODE,
+      CURRENT_GPS.MIN_VALUE,
+      CURRENT_GPS.REF_DATE.VALUE
     );
 
     assert.strictEqual(payableDocument.type, 'warning');
@@ -32,18 +34,19 @@ module('Unit | Service | gps-calculation-service', function (hooks) {
 
   test('should correctly calculate at minimum wage', function (assert) {
     const service = this.owner.lookup('service:gps-calculation-service');
+    const socialNumber = 124;
 
     const payableDocument = service.generatePayableDocumentGpsData(
-      124,
-      '1406',
-      282.4,
-      '2024-01'
+      socialNumber,
+      CURRENT_GPS.CODE,
+      CURRENT_GPS.MIN_VALUE,
+      CURRENT_GPS.REF_DATE.VALUE
     );
 
     assert.strictEqual(payableDocument.type, 'success');
     assert.strictEqual(
       payableDocument.data,
-      '858000000020-824002701403-600000000009-012420240130'
+      '858400000035-036002701406-600000000009-012420250135'
     );
   });
 });

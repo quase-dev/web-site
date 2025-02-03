@@ -57,7 +57,7 @@ function createLinks() {
       'notícias',
       'danger',
       'Contríbuição em relação ao salário mínimo atualizado em jan/2025',
-      'https://exame.com/brasil/guia-do-cidadao/tabela-de-contribuicao-do-inss-2025-veja-o-que-muda-para-autonomos/'
+      'https://www.gov.br/inss/pt-br/noticias/confira-como-ficaram-as-aliquotas-de-contribuicao-ao-inss'
     ),
   ];
 }

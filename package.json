@@ -74,5 +74,8 @@
   "fastbootDependencies": [
     "crypto",
     "rsvp"
-  ]
+  ],
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  }
 }
