@@ -56,8 +56,8 @@ function createLinks() {
       'Valor atual de contribuição',
       'notícias',
       'danger',
-      'Contríbuição em relação ao salário mínimo atualizado em jan/2024',
-      'https://www.jusbrasil.com.br/artigos/inss-2024-entenda-as-novas-regras-para-contribuicao-dos-autonomos/2123256846'
+      'Contríbuição em relação ao salário mínimo atualizado em jan/2025',
+      'https://exame.com/brasil/guia-do-cidadao/tabela-de-contribuicao-do-inss-2025-veja-o-que-muda-para-autonomos/'
     ),
   ];
 }
