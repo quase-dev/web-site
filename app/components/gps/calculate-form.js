@@ -9,6 +9,7 @@ export default class GpsCalculateFormComponent extends Component {
   @service('date-utils-service') dateUtils;
 
   @tracked paymentCodes;
+  @tracked clipboardToastOption = 'hide';
   @tracked response = this.service.makeDefaultResponseData();
   @tracked currRefDateTxt = CURRENT_GPS.REF_DATE.TEXT;
   @tracked currMinPaymentValue = CURRENT_GPS.MIN_VALUE;
@@ -33,6 +34,7 @@ export default class GpsCalculateFormComponent extends Component {
   @action
   cleanData() {
     this.response = this.service.makeDefaultResponseData();
+    this.clipboardToastOption = 'hide';
     this.socialNumber = undefined;
     this.paymentCode = CURRENT_GPS.CODE;
     this.paymentValue = CURRENT_GPS.MIN_VALUE;
@@ -42,6 +44,7 @@ export default class GpsCalculateFormComponent extends Component {
   @action
   copyPayableDocumentGpsData() {
     navigator.clipboard.writeText(this.response.data);
+    this.clipboardToastOption = 'show';
   }
 
   @action

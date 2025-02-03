@@ -49,11 +49,12 @@
     <h2 class="pb-2 border-bottom">Resultado</h2>
     <div class="row align-items-md-center g-5 py-2">
         <div class="col col-12">
+            <ClipboardToast @option={{this.clipboardToastOption}} />
             <Alert @type={{this.response.type}} @data={{this.response.data}} />
         </div>
         <div class="col col-12 m-0 text-end {{if (not-eq this.response.type 'success') (concat 'invisible')}}">
             <button type="button" class="btn btn-success" {{on "click" this.copyPayableDocumentGpsData}}>Copiar
                 número</button>
-        </div>
+        </div>        
     </div>
 </div>
